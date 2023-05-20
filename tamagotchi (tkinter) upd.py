@@ -16,8 +16,10 @@ window.eval('tk::PlaceWindow . center')
 
 
 def start():
+    global weight, thirst, happiness
+
     def die():
-        messagebox.showerror("тамагочи", "питомец умер")
+        messagebox.showerror("тамагочи", "Антон умер")
         quit()
 
     def check():
@@ -29,9 +31,9 @@ def start():
 
     def update():
         global weight, thirst, happiness
-        lbl1.config(text=("голод", round(weight, 2)))
-        lbl2.config(text=("жажда", round(thirst, 2)))
-        lbl3.config(text=("счастье", round(happiness, 2)))
+        lbl1.config(text="голод" + str(round(weight, 2)))
+        lbl2.config(text="жажда" + str(round(thirst, 2)))
+        lbl3.config(text="счастье" + str(round(happiness, 2)))
 
     def decre():
         global weight, thirst, happiness
@@ -100,11 +102,11 @@ def start():
 + Если вы опустите любую из характеристик до 0, ваш питомец умрет.""")
     lbl5 = Label(window, text="кот Антон", font=font.Font(weight="bold"))
     lbl5.grid(column=2, row=0)
-    lbl1 = Label(window, text=("голод", weight))
+    lbl1 = Label(window, text="голод" + str(round(weight, 2)))
     lbl1.grid(column=0, row=1)
-    lbl2 = Label(window, text=("жажда", thirst))
+    lbl2 = Label(window, text="жажда" + str(round(thirst, 2)))
     lbl2.grid(column=1, row=1)
-    lbl3 = Label(window, text=("счастье", happiness))
+    lbl3 = Label(window, text="счастье" + str(round(happiness, 2)))
     lbl3.grid(column=2, row=1)
     lbl4 = Label(window, text="")
 
