@@ -2,7 +2,7 @@ import tkinter
 from tkinter import *
 from tkinter import messagebox
 from tkinter import font
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk,ImageFilter
 
 weight = 10.00
 thirst = 10.00
@@ -121,12 +121,9 @@ def start():
     btn5 = Button(window, text="инструкция", command=info)
     btn5.grid(column=2, row=4)
 
-    canvas = tkinter.Canvas(window, height=150, width=150)
-    image = Image.open("cat.png")
-    image = image.resize((150, 150), Image.LANCZOS)
+    image = Image.open("cat.png").resize((150, 150), Image.LANCZOS)
     photo = ImageTk.PhotoImage(image)
-    canvas.create_image(0, 0, anchor='nw', image=photo)
-    canvas.grid(column=2, row=5)
+    tkinter.Label(window, image=photo, bd=10).grid(row=5, column=2)
     window.mainloop()
 
 
